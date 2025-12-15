@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users
+      author: vlad_a
+      changes:
+        - insert:
+            tableName: users_roles
+            columns:
+              - column: {name: user_id, valueComputed: "(SELECT id FROM users WHERE email = 'sam1spam@gmail.com')"}
+              - column: {name: role_id, value: 2}
+        - insert:
+            tableName: users_roles
+            columns:
+              - column: {name: user_id, valueComputed: "(SELECT id FROM users WHERE email = 'alice@gmail.com')"}
+              - column: {name: role_id, value: 3}
+        - insert:
+            tableName: users_roles
+            columns:
+              - column: {name: user_id, valueComputed: "(SELECT id FROM users WHERE email = 'vo_admin@gmail.com')"}
+              - column: {name: role_id, value: 1}

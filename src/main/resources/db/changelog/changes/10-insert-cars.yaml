@@ -1,0 +1,96 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-cars
+      author: vlad_a
+      changes:
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Audi A5"}
+              - column: {name: body_type, value: "SEDAN"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 35.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Lexus LS 500"}
+              - column: {name: body_type, value: "SEDAN"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 65.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Honda Civic"}
+              - column: {name: body_type, value: "SEDAN"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 35.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Audi Q3"}
+              - column: {name: body_type, value: "SUV"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 50.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "BMW X3"}
+              - column: {name: body_type, value: "SUV"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 45.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Dodge Durango"}
+              - column: {name: body_type, value: "SUV"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 55.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Volkswagen Golf"}
+              - column: {name: body_type, value: "HATCHBACK"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 40.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Ford Focus"}
+              - column: {name: body_type, value: "HATCHBACK"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 45.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Toyota Corolla"}
+              - column: {name: body_type, value: "HATCHBACK"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 35.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Hyundai i40"}
+              - column: {name: body_type, value: "UNIVERSAL"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 35.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Volkswagen Passat"}
+              - column: {name: body_type, value: "UNIVERSAL"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 40.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Audi A4 Avant"}
+              - column: {name: body_type, value: "UNIVERSAL"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 35.0}
+        - insert:
+            tableName: cars
+            columns:
+              - column: {name: model, value: "Renault Megane"}
+              - column: {name: body_type, value: "UNIVERSAL"}
+              - column: {name: available_cars, value: 1}
+              - column: {name: daily_fee, value: 35.0}
