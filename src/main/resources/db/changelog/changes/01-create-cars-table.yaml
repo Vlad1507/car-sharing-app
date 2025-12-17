@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-cars-table
+      author: Vlad
+      changes:
+        - createTable:
+            tableName: cars
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: model
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: body_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: available_cars
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: daily_fee
+                  type: DECIMAL(38, 2)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_deleted
+                  type: boolean
+                  defaultValueBoolean: false
