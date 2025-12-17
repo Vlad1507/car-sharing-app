@@ -29,27 +29,6 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
         return ResponseEntity.status(status.value()).body(problemDetail);
     }
 
-    private ProblemDetail handleValidationException(
-            MethodArgumentNotValidException ex, HttpStatusCode status) {
-        String details = getErrorsDetails(ex);
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(status, details);
-        problemDetail.setType(URI.create("http://localhost:8080/errors/bad-request"));
-        problemDetail.setTitle("Bad Request");
-        problemDetail.setInstance(ex.getBody().getInstance());
-        problemDetail.setProperty("timestamp", Instant.now());
-        return problemDetail;
-    }
-
-    private String getErrorsDetails(MethodArgumentNotValidException ex) {
-        return Optional.of(ex.getDetailMessageArguments())
-                .map(args -> Arrays.stream(args)
-                        .filter(msg -> !ObjectUtils.isEmpty(msg))
-                        .reduce("Please make sure to provide a valid request, ",
-                                (a, b) -> a + " " + b)
-                )
-                .orElse("").toString();
-    }
-
     @ExceptionHandler(RoleUpdateException.class)
     public ResponseEntity<Object> handleRoleUpdateException(
             RoleUpdateException ex, WebRequest request) {
@@ -165,5 +144,26 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
         problemDetail.setInstance(URI.create(requestUriEndpoint.replace("uri=", "")));
         problemDetail.setProperty("timestamp", Instant.now());
         return ResponseEntity.status(status).body(problemDetail);
+    }
+
+    private ProblemDetail handleValidationException(
+            MethodArgumentNotValidException ex, HttpStatusCode status) {
+        String details = getErrorsDetails(ex);
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(status, details);
+        problemDetail.setType(URI.create("http://localhost:8080/errors/bad-request"));
+        problemDetail.setTitle("Bad Request");
+        problemDetail.setInstance(ex.getBody().getInstance());
+        problemDetail.setProperty("timestamp", Instant.now());
+        return problemDetail;
+    }
+
+    private String getErrorsDetails(MethodArgumentNotValidException ex) {
+        return Optional.of(ex.getDetailMessageArguments())
+                .map(args -> Arrays.stream(args)
+                        .filter(msg -> !ObjectUtils.isEmpty(msg))
+                        .reduce("Please make sure to provide a valid request, ",
+                                (a, b) -> a + " " + b)
+                )
+                .orElse("").toString();
     }
 }
